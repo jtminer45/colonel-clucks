@@ -3,9 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Colonel Clucks Poultry | Fresh farm broilers, Jos</title>
-<meta name="description" content="Order fresh farm broilers from Colonel Clucks Poultry in Jos, Plateau State. First batch ready 18-23 December 2026.">
+<title>Colonel Clucks Poultry | Farm-raised broilers, Jos</title>
+<meta name="description" content="Colonel Clucks Poultry is a farm-raised agric start-up in Jos, Plateau State. Pre-order whole or cut broilers from Batch 1, ready 18-23 December 2026.">
 <link rel="icon" href="mascot.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Colonel Clucks Poultry | Farm-raised broilers, Jos">
+<meta property="og:description" content="Farm-raised, Jos-based agric start-up. Pre-order whole or cut broilers from Batch 1, ready 18-23 December 2026.">
+<meta property="og:image" content="logo.png">
+<meta property="og:url" content="https://jtminer45.github.io/colonel-clucks/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
@@ -167,8 +172,8 @@
   <section class="hero" style="padding-top:28px">
     <div class="wrap">
       <img class="logo" src="logo.png" alt="Colonel Clucks Poultry logo: a chicken wearing an army helmet" width="1760" height="1360">
-      <p class="lead">Fresh farm broilers from Jos, Plateau State.</p>
-      <div class="badge">First batch ready 18 to 23 December 2026</div><br>
+      <p class="lead">A farm-raised agric start-up, proudly based in Jos, Plateau State.</p>
+      <div class="badge">Batch 1 ready 18 to 23 December 2026</div><br>
       <a class="btn btn-gold" href="#order">Place your order</a>
     </div>
   </section>
@@ -178,7 +183,7 @@
       <p class="eyebrow">How it works</p>
       <h2>Order in three steps</h2>
       <div class="steps">
-        <div class="step"><b>1</b><p><strong>Fill in the form.</strong> Tell us how many birds, live or dressed, and when you want them.</p></div>
+        <div class="step"><b>1</b><p><strong>Fill in the form.</strong> Tell us how many birds, whole or cut, and when you want them.</p></div>
         <div class="step"><b>2</b><p><strong>Send it to us.</strong> One tap sends your order to our WhatsApp or by email.</p></div>
         <div class="step"><b>3</b><p><strong>We confirm.</strong> We reply with availability, the price and how you will pay, then arrange pickup or delivery.</p></div>
       </div>
@@ -189,22 +194,22 @@
   <section id="products">
     <div class="wrap">
       <p class="eyebrow">What we sell</p>
-      <h2>Broilers, your way</h2>
+      <h2>Farm-raised broilers, your way</h2>
       <div class="cards">
         <div class="card">
-          <span class="tag">Live</span>
-          <h3>Live broiler</h3>
-          <p>A whole live bird, collected from the farm or delivered within Jos.</p>
-          <div class="price" id="priceLive"></div>
+          <span class="tag">Whole</span>
+          <h3>Whole broiler</h3>
+          <p>A whole bird, collected from the farm or delivered within Jos.</p>
+          <div class="price" id="priceWhole"></div>
         </div>
         <div class="card">
-          <span class="tag">Dressed</span>
-          <h3>Dressed broiler</h3>
-          <p>Cleaned and ready to cook, packed in our Colonel Clucks bag.</p>
-          <div class="price" id="priceDressed"></div>
+          <span class="tag">Cut</span>
+          <h3>Cut broiler</h3>
+          <p>Cleaned and cut, ready to cook, packed in our Colonel Clucks bag.</p>
+          <div class="price" id="priceCut"></div>
         </div>
       </div>
-      <p class="note">Our first batch is small, so pre-orders are first come, first served.</p>
+      <p class="note">Batch 1 is small, so pre-orders are first come, first served.</p>
     </div>
   </section>
 
@@ -229,26 +234,26 @@
         </div>
 
         <div class="field" data-field="birds" style="margin-top:16px">
-          <label id="birdsLabel">How many birds? <small>(mix live and dressed if you like)</small></label>
+          <label id="birdsLabel">How many birds? <small>(mix whole and cut if you like)</small></label>
           <div class="grid two" role="group" aria-labelledby="birdsLabel">
             <div class="stepbox">
-              <span class="steplab">Live</span>
+              <span class="steplab">Whole</span>
               <div class="stepper">
-                <button type="button" class="stp" data-for="qtyLive" data-d="-1" aria-label="One less live bird">&minus;</button>
-                <input id="qtyLive" name="qtyLive" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of live birds">
-                <button type="button" class="stp" data-for="qtyLive" data-d="1" aria-label="One more live bird">+</button>
+                <button type="button" class="stp" data-for="qtyWhole" data-d="-1" aria-label="One less whole bird">&minus;</button>
+                <input id="qtyWhole" name="qtyWhole" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of whole birds">
+                <button type="button" class="stp" data-for="qtyWhole" data-d="1" aria-label="One more whole bird">+</button>
               </div>
             </div>
             <div class="stepbox">
-              <span class="steplab">Dressed</span>
+              <span class="steplab">Cut</span>
               <div class="stepper">
-                <button type="button" class="stp" data-for="qtyDressed" data-d="-1" aria-label="One less dressed bird">&minus;</button>
-                <input id="qtyDressed" name="qtyDressed" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of dressed birds">
-                <button type="button" class="stp" data-for="qtyDressed" data-d="1" aria-label="One more dressed bird">+</button>
+                <button type="button" class="stp" data-for="qtyCut" data-d="-1" aria-label="One less cut bird">&minus;</button>
+                <input id="qtyCut" name="qtyCut" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of cut birds">
+                <button type="button" class="stp" data-for="qtyCut" data-d="1" aria-label="One more cut bird">+</button>
               </div>
             </div>
           </div>
-          <div class="err">Choose at least one bird, live or dressed.</div>
+          <div class="err">Choose at least one bird, whole or cut.</div>
         </div>
 
         <div class="grid two" style="margin-top:16px">
@@ -299,8 +304,8 @@
   <section id="about" class="about">
     <div class="wrap">
       <p class="eyebrow">The farm</p>
-      <h2>Small farm, personal service</h2>
-      <p>Colonel Clucks Poultry is a new broiler farm in Jos, Plateau State. Our first batch is small, which means every order gets a personal reply from us, not a form letter.</p>
+      <h2>Small start-up, personal service</h2>
+      <p>Colonel Clucks Poultry is a farm-raised, farm-to-table agric start-up based in Jos, Plateau State. Batch 1 is small, which means every order gets a personal reply from us, not a form letter.</p>
       <div class="contact">
         <div><strong>Location:</strong> Jos, Plateau State</div>
         <div class="social">
@@ -323,7 +328,7 @@
   <img src="mascot.png" alt="" width="64" height="64">
   <p class="slab">Colonel Clucks</p>
   <p>Poultry · Jos, Plateau State</p>
-  <p>Fresh farm broilers</p>
+  <p>Farm-raised, proudly local</p>
   <p style="font-size:13px;opacity:.8;margin-top:14px">&copy; <span id="yr">2026</span> Colonel Clucks Poultry. All rights reserved.</p>
   <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
 </footer>
@@ -371,8 +376,8 @@ var CONFIG = {
   whatsapp: "2348156078475",   // international format, no + or spaces
   phoneDisplay: "0815 607 8475",
   email: "cluckscolonel@gmail.com", // orders email
-  priceLive: null,              // e.g. 6500 (naira per bird); leave null until you set a price
-  priceDressed: null
+  priceWhole: null,              // e.g. 6500 (naira per bird); leave null until you set a price
+  priceCut: null
 };
 /* ========================================= */
 
@@ -381,8 +386,8 @@ var CONFIG = {
   var form = $('orderForm');
 
   function priceText(p){ return p ? "₦" + Number(p).toLocaleString('en-NG') + " per bird" : "Price confirmed when you order"; }
-  $('priceLive').textContent = priceText(CONFIG.priceLive);
-  $('priceDressed').textContent = priceText(CONFIG.priceDressed);
+  $('priceWhole').textContent = priceText(CONFIG.priceWhole);
+  $('priceCut').textContent = priceText(CONFIG.priceCut);
 
   var tel = CONFIG.whatsapp;
   $('waIcon').href = "https://wa.me/" + tel;
@@ -401,11 +406,11 @@ var CONFIG = {
 
   function num(id){ var n = parseInt(form.elements[id].value, 10); return isNaN(n) || n < 0 ? 0 : n; }
   function buildMessage(){
-    var live = num('qtyLive'), dressed = num('qtyDressed'), total = live + dressed;
+    var whole = num('qtyWhole'), cut = num('qtyCut'), total = whole + cut;
     var mode = radio('mode');
     var parts = [];
-    if(live) parts.push(live + " live");
-    if(dressed) parts.push(dressed + " dressed");
+    if(whole) parts.push(whole + " whole");
+    if(cut) parts.push(cut + " cut");
     var lines = [
       "Hello Colonel Clucks, I would like to order:",
       "",
@@ -446,14 +451,14 @@ var CONFIG = {
     var checks = {
       name: val('name').length > 1,
       phone: val('phone').replace(/\D/g,'').length >= 7,
-      birds: num('qtyLive') + num('qtyDressed') >= 1,
+      birds: num('qtyWhole') + num('qtyCut') >= 1,
       area: radio('mode') !== 'Delivery' || val('area').length > 2
     };
     Object.keys(checks).forEach(function(k){
       setInvalid(k, !checks[k]);
       if(!checks[k]){ ok = false; if(!first) first = k; }
     });
-    if(first){ var el = form.elements[first === 'birds' ? 'qtyLive' : first]; if(el) el.focus(); }
+    if(first){ var el = form.elements[first === 'birds' ? 'qtyWhole' : first]; if(el) el.focus(); }
     return ok;
   }
 
