@@ -93,6 +93,11 @@
   .about p{max-width:640px}
   .contact{display:grid;gap:10px;margin-top:16px}
   .contact a{font-weight:600}
+  .social{display:flex;gap:14px;margin-top:6px}
+  .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;border-radius:50%;background:var(--green);color:var(--cream);text-decoration:none;flex:0 0 auto}
+  .icon-btn svg{width:24px;height:24px;fill:currentColor}
+  .icon-btn:hover{background:var(--green-d)}
+  .icon-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
   footer{background:var(--green);color:var(--cream);text-align:center;padding:30px 20px}
   footer img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 10px}
   footer p{margin:4px 0;font-size:15px}
@@ -298,9 +303,17 @@
       <p>Colonel Clucks Poultry is a new broiler farm in Jos, Plateau State. Our first batch is small, which means every order gets a personal reply from us, not a form letter.</p>
       <div class="contact">
         <div><strong>Location:</strong> Jos, Plateau State</div>
-        <div><strong>WhatsApp / phone:</strong> <a id="phoneLink" href="#">0815 607 8475</a></div>
-        <div><strong>Instagram:</strong> <a href="https://www.instagram.com/colonelclucks/" target="_blank" rel="noopener noreferrer">@colonelclucks</a></div>
-        <div id="emailRow" class="hidden"><strong>Email:</strong> <a id="emailLink" href="#"></a></div>
+        <div class="social">
+          <a class="icon-btn" id="waIcon" href="#" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21h.004c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 1.67c2.21 0 4.29.86 5.85 2.42a8.23 8.23 0 0 1 2.43 5.82c0 4.56-3.72 8.26-8.28 8.26a8.3 8.3 0 0 1-4.22-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.18 8.18 0 0 1-1.26-4.4c0-4.56 3.72-8.26 8.27-8.26zm-4.71 4.62c-.17 0-.44.06-.63.3-.19.24-.75.73-.75 1.77 0 1.04.76 2.05.87 2.19.11.15 1.59 2.44 3.88 3.33 1.9.75 2.29.6 2.71.56.42-.04 1.37-.56 1.56-1.1.19-.54.19-1 .13-1.1-.06-.1-.23-.16-.48-.28-.25-.12-1.47-.72-1.7-.8-.23-.08-.4-.12-.56.12-.17.24-.65.82-.8.98-.15.17-.3.19-.56.07-.26-.12-1.07-.4-2.04-1.26-.76-.68-1.26-1.5-1.41-1.75-.15-.25-.02-.38.1-.52.11-.13.26-.33.4-.5.11-.14.17-.25.26-.42.09-.17.04-.32-.03-.44-.07-.12-.6-1.45-.82-1.98-.17-.42-.35-.46-.52-.47h-.42z"/></svg>
+          </a>
+          <a class="icon-btn" id="emailIcon" href="#" aria-label="Email us">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13zm1.74.26L12 11.2l8.26-5.44H3.74zM20.5 7.1l-8.08 5.33a.75.75 0 0 1-.84 0L3.5 7.1v11.4h17V7.1z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.instagram.com/colonelclucks/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.012 4.85.07 1.17.054 1.97.24 2.43.41.59.22 1.01.49 1.46.94.45.45.72.87.94 1.46.17.46.36 1.26.41 2.43.058 1.27.07 1.65.07 4.85s-.012 3.58-.07 4.85c-.054 1.17-.24 1.97-.41 2.43a3.9 3.9 0 0 1-.94 1.46c-.45.45-.87.72-1.46.94-.46.17-1.26.36-2.43.41-1.27.058-1.65.07-4.85.07s-3.58-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.41a3.9 3.9 0 0 1-1.46-.94 3.9 3.9 0 0 1-.94-1.46c-.17-.46-.36-1.26-.41-2.43C2.172 15.58 2.16 15.2 2.16 12s.012-3.58.07-4.85c.054-1.17.24-1.97.41-2.43.22-.59.49-1.01.94-1.46.45-.45.87-.72 1.46-.94.46-.17 1.26-.36 2.43-.41C8.42 2.172 8.8 2.16 12 2.16zm0 1.62c-3.14 0-3.5.012-4.74.068-1.03.047-1.6.218-1.97.363-.5.194-.85.425-1.22.796-.37.37-.6.72-.8 1.22-.145.37-.316.94-.363 1.97-.056 1.24-.068 1.6-.068 4.74s.012 3.5.068 4.74c.047 1.03.218 1.6.363 1.97.194.5.425.85.796 1.22.37.37.72.6 1.22.8.37.145.94.316 1.97.363 1.24.056 1.6.068 4.74.068s3.5-.012 4.74-.068c1.03-.047 1.6-.218 1.97-.363.5-.194.85-.425 1.22-.796.37-.37.6-.72.8-1.22.145-.37.316-.94.363-1.97.056-1.24.068-1.6.068-4.74s-.012-3.5-.068-4.74c-.047-1.03-.218-1.6-.363-1.97a3.3 3.3 0 0 0-.796-1.22 3.3 3.3 0 0 0-1.22-.8c-.37-.145-.94-.316-1.97-.363-1.24-.056-1.6-.068-4.74-.068zM12 6.87A5.13 5.13 0 1 1 6.87 12 5.13 5.13 0 0 1 12 6.87zm0 1.62A3.51 3.51 0 1 0 15.51 12 3.51 3.51 0 0 0 12 8.49zm5.35-2.9a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"/></svg>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -311,7 +324,8 @@
   <p class="slab">Colonel Clucks</p>
   <p>Poultry · Jos, Plateau State</p>
   <p>Fresh farm broilers</p>
-  <p>© 2026 Colonel Clucks Poultry. All rights reserved.</p>
+  <p style="font-size:13px;opacity:.8;margin-top:14px">&copy; <span id="yr">2026</span> Colonel Clucks Poultry. All rights reserved.</p>
+  <script>document.getElementById("yr").textContent=new Date().getFullYear();</script>
 </footer>
 
 
@@ -371,14 +385,15 @@ var CONFIG = {
   $('priceDressed').textContent = priceText(CONFIG.priceDressed);
 
   var tel = CONFIG.whatsapp;
-  $('phoneLink').textContent = CONFIG.phoneDisplay;
-  $('phoneLink').href = "tel:+" + tel;
+  $('waIcon').href = "https://wa.me/" + tel;
+  $('waIcon').title = CONFIG.phoneDisplay;
 
   var hasEmail = !!CONFIG.email;
   if(hasEmail){
-    $('emailRow').classList.remove('hidden');
-    $('emailLink').textContent = CONFIG.email;
-    $('emailLink').href = "mailto:" + CONFIG.email;
+    $('emailIcon').href = "mailto:" + CONFIG.email;
+    $('emailIcon').title = CONFIG.email;
+  } else {
+    $('emailIcon').classList.add('hidden');
   }
 
   function val(n){ return (form.elements[n].value || '').trim(); }
