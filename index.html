@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Colonel Clucks Poultry | Fresh farm broilers, Jos</title>
+<meta name="description" content="Order fresh farm broilers from Colonel Clucks Poultry in Jos, Plateau State. First batch ready 18-23 December 2026.">
+<link rel="icon" href="mascot.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#4A5D23; --gold:#E8A317; --cream:#FFF6E0; --char:#232A14;
+    --green-d:#3a4a1a; --line:rgba(35,42,20,.18);
+    --slab:'Alfa Slab One',Georgia,'Times New Roman',serif;
+    --cond:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+    --body:'Barlow',system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--char);font-family:var(--body);font-size:17px;line-height:1.55}
+  img{max-width:100%;height:auto;display:block}
+  section[id]{scroll-margin-top:64px}
+  a{color:inherit}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  .eyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);font-size:15px;margin:0 0 8px}
+  h1,h2,h3{font-family:var(--slab);font-weight:400;color:var(--green);line-height:1.1;margin:0}
+  h2{font-size:clamp(28px,6vw,40px);margin-bottom:14px}
+  h3{font-size:22px;margin-bottom:6px}
+  .rule{display:flex;align-items:center;gap:14px;justify-content:center;margin:0 0 6px}
+  .rule i{height:4px;width:56px;background:var(--gold);display:block}
+
+  /* top bar */
+  .bar{position:sticky;top:0;z-index:10;background:var(--green);color:var(--cream)}
+  .bar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;font-family:var(--slab);font-size:19px}
+  .brand img{width:38px;height:38px;border-radius:50%;object-fit:cover}
+  .bar a.cta{font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--char);text-decoration:none;padding:9px 16px;border-radius:6px;font-size:16px}
+
+  /* hero */
+  .hero{text-align:center;padding:28px 0 44px;border-bottom:6px solid var(--green)}
+  .hero img.logo{width:min(520px,92%);margin:0 auto}
+  .hero p.lead{font-size:20px;max-width:560px;margin:6px auto 22px}
+  .badge{display:inline-block;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;border:2px solid var(--char);padding:6px 14px;border-radius:999px;font-size:15px;margin-bottom:20px}
+  .btn{display:inline-block;font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:19px;border:0;border-radius:8px;padding:14px 26px;cursor:pointer;text-decoration:none}
+  .btn-gold{background:var(--gold);color:var(--char)}
+  .btn-green{background:var(--green);color:var(--cream)}
+  .btn-wa{background:#1f7a3d;color:#fff}
+  .btn-line{background:transparent;color:var(--green);border:2px solid var(--green)}
+  .btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+  section{padding:48px 0}
+  section + section{border-top:1px solid var(--line)}
+
+  /* steps */
+  .steps{display:grid;gap:14px;margin-top:20px}
+  .step{display:flex;gap:16px;align-items:flex-start;background:#fff;border:2px solid var(--green);border-radius:10px;padding:16px}
+  .step b{font-family:var(--slab);font-size:26px;color:var(--gold);line-height:1;min-width:26px}
+  .step p{margin:0}
+
+  /* products */
+  .cards{display:grid;gap:16px;margin-top:20px}
+  .card{background:#fff;border:3px solid var(--green);border-radius:12px;padding:22px}
+  .card .price{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.06em;color:var(--char);margin-top:10px}
+  .card .tag{display:inline-block;background:var(--gold);color:var(--char);font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;padding:3px 10px;border-radius:4px;margin-bottom:10px}
+  .note{font-size:15px;opacity:.8;margin-top:14px}
+
+  /* form */
+  .formbox{background:#fff;border:3px solid var(--green);border-radius:14px;padding:22px;margin-top:20px}
+  .grid{display:grid;gap:16px}
+  label{display:block;font-family:var(--cond);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:15px;margin-bottom:5px;color:var(--green)}
+  label small{text-transform:none;letter-spacing:0;font-family:var(--body);font-weight:400;opacity:.75}
+  input,select,textarea{width:100%;font:inherit;font-size:17px;color:var(--char);background:var(--cream);border:2px solid var(--line);border-radius:8px;padding:12px}
+  input:focus,select:focus,textarea:focus{border-color:var(--green)}
+  textarea{min-height:90px;resize:vertical}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .seg input{position:absolute;opacity:0;pointer-events:none}
+  .seg label{margin:0;text-align:center;padding:12px;border:2px solid var(--line);border-radius:8px;background:var(--cream);cursor:pointer;color:var(--char);font-size:17px}
+  .seg input:checked + label{background:var(--green);color:var(--cream);border-color:var(--green)}
+  .seg input:focus-visible + label{outline:3px solid var(--gold);outline-offset:2px}
+  .seg > div{position:relative}
+  .err{color:#a12a1a;font-size:15px;margin-top:4px;display:none}
+  .invalid .err{display:block}
+  .invalid input,.invalid select{border-color:#a12a1a}
+  .actions{display:grid;gap:12px;margin-top:22px}
+  .preview{margin-top:22px;background:var(--cream);border:2px dashed var(--green);border-radius:10px;padding:14px;font-size:15px;white-space:pre-wrap;word-break:break-word}
+  .preview h4{margin:0 0 6px;font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-size:15px}
+  .status{margin-top:12px;font-size:15px;min-height:1.4em}
+  .hidden{display:none !important}
+
+  /* about / contact */
+  .about p{max-width:640px}
+  .contact{display:grid;gap:10px;margin-top:16px}
+  .contact a{font-weight:600}
+  footer{background:var(--green);color:var(--cream);text-align:center;padding:30px 20px}
+  footer img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin:0 auto 10px}
+  footer p{margin:4px 0;font-size:15px}
+  footer .slab{font-family:var(--slab);font-size:22px}
+
+
+
+  .stepbox{background:var(--cream);border:2px solid var(--line);border-radius:10px;padding:10px 12px}
+  .steplab{display:block;font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:15px;color:var(--green);margin-bottom:6px}
+  .stepper{display:flex;align-items:center;gap:8px}
+  .stepper input{text-align:center;font-weight:600;font-size:20px;padding:10px 4px;-moz-appearance:textfield}
+  .stepper input::-webkit-outer-spin-button,.stepper input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  .stp{flex:0 0 46px;height:46px;border-radius:8px;border:0;background:var(--green);color:var(--cream);font-size:26px;line-height:1;cursor:pointer;font-family:var(--body)}
+  .stp:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+  .invalid .stepbox{border-color:#a12a1a}
+
+  /* salute overlay */
+  .salute{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(35,42,20,.74)}
+  .salute.open{display:flex;animation:fadeIn .25s ease both}
+  @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+  .s-card{background:var(--cream);border:4px solid var(--green);border-radius:18px;max-width:420px;width:100%;text-align:center;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35);max-height:calc(100vh - 40px);overflow-y:auto}
+  .s-stage{height:230px;background:var(--gold);position:relative;overflow:hidden;border-bottom:4px solid var(--green)}
+  .s-stage svg{position:absolute;left:50%;bottom:-6px;width:250px;height:250px;margin-left:-125px;transform:translateY(105%)}
+  .salute.open .s-stage svg{animation:rise .7s cubic-bezier(.2,1.3,.4,1) .15s forwards}
+  @keyframes rise{to{transform:translateY(0)}}
+  #wing{transform-origin:222px 252px;transform:rotate(112deg)}
+  .salute.open #wing{animation:snap .28s cubic-bezier(.2,.9,.3,1.2) .95s forwards}
+  @keyframes snap{to{transform:rotate(0deg)}}
+  .s-body{padding:20px 22px 24px}
+  .s-body > *{opacity:0;transform:translateY(8px)}
+  .salute.open .s-body > *{animation:up .4s ease forwards}
+  .salute.open .s-body > :nth-child(1){animation-delay:1.15s}
+  .salute.open .s-body > :nth-child(2){animation-delay:1.3s}
+  .salute.open .s-body > :nth-child(3){animation-delay:1.45s}
+  .salute.open .s-body > :nth-child(4){animation-delay:1.6s}
+  @keyframes up{to{opacity:1;transform:none}}
+  .s-body h3{font-size:30px;margin:0 0 8px}
+  .s-body p{margin:0 0 10px}
+  .s-body .signoff{font-family:var(--cond);font-weight:700;letter-spacing:.06em;font-size:20px;color:var(--green);margin-bottom:16px}
+  @media (prefers-reduced-motion:reduce){
+    .s-stage svg{transform:none !important;animation:none !important}
+    #wing{transform:none !important;animation:none !important}
+    .s-body > *{opacity:1 !important;transform:none !important;animation:none !important}
+  }
+
+  @media (min-width:720px){
+    body{font-size:18px}
+    .steps{grid-template-columns:repeat(3,1fr)}
+    .step{flex-direction:column}
+    .cards{grid-template-columns:1fr 1fr}
+    .grid.two{grid-template-columns:1fr 1fr}
+    .actions{grid-template-columns:1fr 1fr}
+    .formbox{padding:32px}
+  }
+</style>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="mascot.png" alt="" width="38" height="38"><span>Colonel Clucks</span></a>
+    <a class="cta" href="#order">Order</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="padding-top:28px">
+    <div class="wrap">
+      <img class="logo" src="logo.png" alt="Colonel Clucks Poultry logo: a chicken wearing an army helmet" width="1760" height="1360">
+      <p class="lead">Fresh farm broilers from Jos, Plateau State.</p>
+      <div class="badge">First batch ready 18 to 23 December 2026</div><br>
+      <a class="btn btn-gold" href="#order">Place your order</a>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <p class="eyebrow">How it works</p>
+      <h2>Order in three steps</h2>
+      <div class="steps">
+        <div class="step"><b>1</b><p><strong>Fill in the form.</strong> Tell us how many birds, live or dressed, and when you want them.</p></div>
+        <div class="step"><b>2</b><p><strong>Send it to us.</strong> One tap sends your order to our WhatsApp or by email.</p></div>
+        <div class="step"><b>3</b><p><strong>We confirm.</strong> We reply with availability, the price and how you will pay, then arrange pickup or delivery.</p></div>
+      </div>
+      <p class="note">No payment is taken on this site. Price and payment are agreed with you directly.</p>
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="wrap">
+      <p class="eyebrow">What we sell</p>
+      <h2>Broilers, your way</h2>
+      <div class="cards">
+        <div class="card">
+          <span class="tag">Live</span>
+          <h3>Live broiler</h3>
+          <p>A whole live bird, collected from the farm or delivered within Jos.</p>
+          <div class="price" id="priceLive"></div>
+        </div>
+        <div class="card">
+          <span class="tag">Dressed</span>
+          <h3>Dressed broiler</h3>
+          <p>Cleaned and ready to cook, packed in our Colonel Clucks bag.</p>
+          <div class="price" id="priceDressed"></div>
+        </div>
+      </div>
+      <p class="note">Our first batch is small, so pre-orders are first come, first served.</p>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap">
+      <p class="eyebrow">Pre-order</p>
+      <h2>Place your order</h2>
+      <p>Fill this in, then choose how to send it to us.</p>
+
+      <form class="formbox" id="orderForm" novalidate>
+        <div class="grid two">
+          <div class="field" data-field="name">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+            <div class="err">Please enter your name.</div>
+          </div>
+          <div class="field" data-field="phone">
+            <label for="phone">Phone number</label>
+            <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0803 000 0000" required>
+            <div class="err">Please enter a phone number we can reach you on.</div>
+          </div>
+        </div>
+
+        <div class="field" data-field="birds" style="margin-top:16px">
+          <label id="birdsLabel">How many birds? <small>(mix live and dressed if you like)</small></label>
+          <div class="grid two" role="group" aria-labelledby="birdsLabel">
+            <div class="stepbox">
+              <span class="steplab">Live</span>
+              <div class="stepper">
+                <button type="button" class="stp" data-for="qtyLive" data-d="-1" aria-label="One less live bird">&minus;</button>
+                <input id="qtyLive" name="qtyLive" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of live birds">
+                <button type="button" class="stp" data-for="qtyLive" data-d="1" aria-label="One more live bird">+</button>
+              </div>
+            </div>
+            <div class="stepbox">
+              <span class="steplab">Dressed</span>
+              <div class="stepper">
+                <button type="button" class="stp" data-for="qtyDressed" data-d="-1" aria-label="One less dressed bird">&minus;</button>
+                <input id="qtyDressed" name="qtyDressed" type="number" inputmode="numeric" min="0" max="500" step="1" value="0" aria-label="Number of dressed birds">
+                <button type="button" class="stp" data-for="qtyDressed" data-d="1" aria-label="One more dressed bird">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="err">Choose at least one bird, live or dressed.</div>
+        </div>
+
+        <div class="grid two" style="margin-top:16px">
+          <div>
+            <label id="modeLabel">Pickup or delivery?</label>
+            <div class="seg" role="radiogroup" aria-labelledby="modeLabel">
+              <div><input type="radio" id="mPick" name="mode" value="Pickup" checked><label for="mPick">Pickup</label></div>
+              <div><input type="radio" id="mDel" name="mode" value="Delivery"><label for="mDel">Delivery</label></div>
+            </div>
+          </div>
+          <div>
+            <label for="date">Date wanted</label>
+            <select id="date" name="date">
+              <option>Any day, 18 to 23 Dec</option>
+              <option>Fri 18 Dec</option>
+              <option>Sat 19 Dec</option>
+              <option>Sun 20 Dec</option>
+              <option>Mon 21 Dec</option>
+              <option>Tue 22 Dec</option>
+              <option>Wed 23 Dec</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field hidden" id="areaBox" data-field="area" style="margin-top:16px">
+          <label for="area">Delivery area in Jos <small>(street, estate or landmark)</small></label>
+          <input id="area" name="area" type="text" autocomplete="street-address">
+          <div class="err">Please tell us where to deliver in Jos.</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <label for="notes">Anything else? <small>(optional)</small></label>
+          <textarea id="notes" name="notes" placeholder="Size preference, event date, questions"></textarea>
+        </div>
+
+        <div class="preview" aria-live="polite"><h4>Your order message</h4><span id="preview"></span></div>
+
+        <div class="actions">
+          <a class="btn btn-wa" id="sendWa" href="#order" target="_blank" rel="noopener" style="text-align:center">Send on WhatsApp</a>
+          <a class="btn btn-line" id="sendMail" href="#order" target="_blank" rel="noopener" style="text-align:center">Send by email</a>
+        </div>
+        <p class="status" id="status" role="status"></p>
+        <p class="note" style="margin-top:0">Sending opens your WhatsApp or email app with the order already written. Nothing is sent until you press send there.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap">
+      <p class="eyebrow">The farm</p>
+      <h2>Small farm, personal service</h2>
+      <p>Colonel Clucks Poultry is a new broiler farm in Jos, Plateau State. Our first batch is small, which means every order gets a personal reply from us, not a form letter.</p>
+      <div class="contact">
+        <div><strong>Location:</strong> Jos, Plateau State</div>
+        <div><strong>WhatsApp / phone:</strong> <a id="phoneLink" href="#">0815 607 8475</a></div>
+        <div id="emailRow" class="hidden"><strong>Email:</strong> <a id="emailLink" href="#"></a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="mascot.png" alt="" width="64" height="64">
+  <p class="slab">Colonel Clucks</p>
+  <p>Poultry · Jos, Plateau State</p>
+  <p>Fresh farm broilers</p>
+</footer>
+
+
+<div class="salute" id="salute" role="dialog" aria-modal="true" aria-labelledby="sTitle" aria-hidden="true">
+  <div class="s-card">
+    <div class="s-stage">
+      <svg viewBox="0 0 300 300" aria-hidden="true" focusable="false">
+        <path d="M58 305 C58 238 100 206 150 206 C200 206 242 238 242 305 Z" fill="#FFF6E0" stroke="#232A14" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M112 266 q10 -14 20 0 q10 -14 20 0 q10 -14 20 0" fill="none" stroke="#232A14" stroke-width="5" stroke-linecap="round"/>
+        <path d="M126 286 q9 -12 18 0 q9 -12 18 0" fill="none" stroke="#232A14" stroke-width="5" stroke-linecap="round"/>
+        <g id="wing" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M222 252 L268 216 L238 132" stroke="#232A14" stroke-width="28"/>
+          <path d="M222 252 L268 216 L238 132" stroke="#FFF6E0" stroke-width="17"/>
+        </g>
+        <circle cx="150" cy="158" r="58" fill="#FFF6E0" stroke="#232A14" stroke-width="6"/>
+        <path d="M94 134 C84 170 108 202 140 209" fill="none" stroke="#4A5D23" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="96" cy="172" r="6" fill="#E8A317" stroke="#232A14" stroke-width="4"/>
+        <path d="M198 198 c14 -4 22 12 14 28 c-8 14 -24 6 -22 -12 z" fill="#E8A317" stroke="#232A14" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M205 152 L256 170 L205 190 Z" fill="#E8A317" stroke="#232A14" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M208 171 L250 170" stroke="#232A14" stroke-width="4" stroke-linecap="round"/>
+        <circle cx="172" cy="165" r="7" fill="#232A14"/>
+        <circle cx="174" cy="163" r="2.2" fill="#FFF6E0"/>
+        <path d="M156 151 L192 159" stroke="#232A14" stroke-width="6" stroke-linecap="round"/>
+        <path d="M76 124 C76 62 112 40 152 40 C192 40 228 64 228 124 Z" fill="#4A5D23" stroke="#232A14" stroke-width="6" stroke-linejoin="round"/>
+        <path d="M100 96 C106 74 124 60 146 56" fill="none" stroke="#7a8c43" stroke-width="6" stroke-linecap="round"/>
+        <path d="M80 110 C130 102 176 102 224 110" fill="none" stroke="#3a4a1a" stroke-width="6" stroke-linecap="round"/>
+        <polygon points="156,68 160.5,78 171,78.5 163,85 165.5,96 156,90 146.5,96 149,85 141,78.5 151.5,78" fill="#E8A317" stroke="#232A14" stroke-width="3" stroke-linejoin="round"/>
+        <rect x="68" y="120" width="170" height="20" rx="10" fill="#3a4a1a" stroke="#232A14" stroke-width="6"/>
+      </svg>
+    </div>
+    <div class="s-body">
+      <h3 id="sTitle">Roger that!</h3>
+      <p id="sMsg"></p>
+      <p class="signoff" id="sSign"></p>
+      <button type="button" class="btn btn-green" id="sClose">At ease</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ===== Edit these when details change ===== */
+var CONFIG = {
+  whatsapp: "2348156078475",   // international format, no + or spaces
+  phoneDisplay: "0815 607 8475",
+  email: "cluckscolonel@gmail.com", // orders email
+  priceLive: null,              // e.g. 6500 (naira per bird); leave null until you set a price
+  priceDressed: null
+};
+/* ========================================= */
+
+(function(){
+  var $ = function(id){ return document.getElementById(id); };
+  var form = $('orderForm');
+
+  function priceText(p){ return p ? "₦" + Number(p).toLocaleString('en-NG') + " per bird" : "Price confirmed when you order"; }
+  $('priceLive').textContent = priceText(CONFIG.priceLive);
+  $('priceDressed').textContent = priceText(CONFIG.priceDressed);
+
+  var tel = CONFIG.whatsapp;
+  $('phoneLink').textContent = CONFIG.phoneDisplay;
+  $('phoneLink').href = "tel:+" + tel;
+
+  var hasEmail = !!CONFIG.email;
+  if(hasEmail){
+    $('emailRow').classList.remove('hidden');
+    $('emailLink').textContent = CONFIG.email;
+    $('emailLink').href = "mailto:" + CONFIG.email;
+  }
+
+  function val(n){ return (form.elements[n].value || '').trim(); }
+  function radio(n){ var r = form.querySelector('input[name="'+n+'"]:checked'); return r ? r.value : ''; }
+
+  function num(id){ var n = parseInt(form.elements[id].value, 10); return isNaN(n) || n < 0 ? 0 : n; }
+  function buildMessage(){
+    var live = num('qtyLive'), dressed = num('qtyDressed'), total = live + dressed;
+    var mode = radio('mode');
+    var parts = [];
+    if(live) parts.push(live + " live");
+    if(dressed) parts.push(dressed + " dressed");
+    var lines = [
+      "Hello Colonel Clucks, I would like to order:",
+      "",
+      "Birds: " + (parts.length ? parts.join(" + ") + " (" + total + " total)" : "__"),
+      mode === 'Delivery' ? "Delivery in Jos: " + (val('area') || '__') : "Pickup from the farm",
+      "Date wanted: " + form.elements['date'].value,
+      "Name: " + (val('name') || '__'),
+      "Phone: " + (val('phone') || '__')
+    ];
+    if(val('notes')) lines.push("Notes: " + val('notes'));
+    lines.push("", "Please confirm availability and price. Thank you.");
+    return lines.join("\n");
+  }
+
+  Array.prototype.forEach.call(form.querySelectorAll('.stp'), function(btn){
+    btn.addEventListener('click', function(){
+      var inp = $(btn.getAttribute('data-for'));
+      var v = (parseInt(inp.value,10) || 0) + parseInt(btn.getAttribute('data-d'),10);
+      inp.value = Math.max(0, Math.min(500, v));
+      form.dispatchEvent(new Event('input', {bubbles:true}));
+    });
+  });
+
+  function refresh(){
+    var del = radio('mode') === 'Delivery';
+    $('areaBox').classList.toggle('hidden', !del);
+    $('preview').textContent = buildMessage();
+  }
+  form.addEventListener('input', refresh);
+  form.addEventListener('change', refresh);
+
+  function setInvalid(name, bad){
+    var f = form.querySelector('[data-field="'+name+'"]');
+    if(f) f.classList.toggle('invalid', bad);
+  }
+  function validate(){
+    var ok = true, first = null;
+    var checks = {
+      name: val('name').length > 1,
+      phone: val('phone').replace(/\D/g,'').length >= 7,
+      birds: num('qtyLive') + num('qtyDressed') >= 1,
+      area: radio('mode') !== 'Delivery' || val('area').length > 2
+    };
+    Object.keys(checks).forEach(function(k){
+      setInvalid(k, !checks[k]);
+      if(!checks[k]){ ok = false; if(!first) first = k; }
+    });
+    if(first){ var el = form.elements[first === 'birds' ? 'qtyLive' : first]; if(el) el.focus(); }
+    return ok;
+  }
+
+  function updateLinks(){
+    var msg = buildMessage();
+    $('sendWa').href = "https://wa.me/" + tel + "?text=" + encodeURIComponent(msg);
+    $('sendMail').href = "mailto:" + CONFIG.email + "?subject=" + encodeURIComponent("Order from " + (val('name') || 'a customer')) + "&body=" + encodeURIComponent(msg);
+  }
+  form.addEventListener('input', function(e){
+    var f = e.target.closest ? e.target.closest('.field') : null;
+    if(f) f.classList.remove('invalid');
+    updateLinks();
+  });
+  form.addEventListener('change', updateLinks);
+
+
+  /* ===== Saluting chicken ===== */
+  var salute = $('salute'), lastFocus = null;
+  var TITLES = ["Roger that, NAME!", "Copy that, NAME!", "Affirmative, NAME!"];
+  var SIGNOFFS = ["Dismissed! Have a cluck-tastic day ahead.", "Stay fresh, stay brave, cluck on!", "Now go and have a cluck-tastic day, soldier!"];
+  function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+  function showSalute(channel){
+    var first = val('name').split(/\s+/)[0] || 'soldier';
+    $('sTitle').textContent = pick(TITLES).replace('NAME', first);
+    $('sMsg').textContent = "Your order is locked and loaded. Press SEND in " + channel + " and our command centre will get back to you soon with your price and delivery plan. Thank you for your service to the flock!";
+    $('sSign').textContent = pick(SIGNOFFS);
+    lastFocus = document.activeElement;
+    salute.classList.remove('open'); void salute.offsetWidth;
+    salute.classList.add('open');
+    salute.setAttribute('aria-hidden','false');
+    $('sClose').focus();
+  }
+  function hideSalute(){
+    salute.classList.remove('open');
+    salute.setAttribute('aria-hidden','true');
+    if(lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  $('sClose').addEventListener('click', hideSalute);
+  salute.addEventListener('click', function(e){ if(e.target === salute) hideSalute(); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && salute.classList.contains('open')) hideSalute(); });
+
+  $('sendWa').addEventListener('click', function(e){
+    if(!validate()){ e.preventDefault(); return; }
+    updateLinks();
+    $('status').textContent = "Opening WhatsApp. Press send there to place your order.";
+    showSalute("WhatsApp");
+  });
+  $('sendMail').addEventListener('click', function(e){
+    if(!validate()){ e.preventDefault(); return; }
+    updateLinks();
+    $('status').textContent = "Opening your email app. Press send there to place your order.";
+    showSalute("your email app");
+  });
+  refresh();
+  updateLinks();
+})();
+</script>
+</body>
+</html>
