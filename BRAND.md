@@ -22,7 +22,7 @@ Never use other brand colours. White (#FFFFFF) is fine for content cards.
 2. Gold band with the mascot (saluting for welcomes and greetings, cheering for confirmations and good news).
 3. Cream or white content with an Army Green heading.
 4. Sign-off: "Have a cluck-tastic day!" then "The Colonel, Colonel Clucks Poultry".
-5. Army Green footer: "CONNECT WITH US" in gold, then Instagram @colonelclucks (https://www.instagram.com/colonelclucks/), WhatsApp +234 815 607 8475 (https://wa.me/2348156078475), website https://colonelclucks.netlify.app, email cluckscolonel@gmail.com.
+5. Army Green footer: "CONNECT WITH US" in gold, then Instagram @colonelclucks (https://www.instagram.com/colonelclucks/), X/Twitter @ColonelClucks (https://x.com/ColonelClucks), Facebook (https://www.facebook.com/profile.php?id=61596370718430), WhatsApp +234 815 607 8475 (https://wa.me/2348156078475), website https://colonelclucks.netlify.app, email cluckscolonel@gmail.com.
 
 ## Mascot
 - The Colonel: a cream chicken in an Army Green helmet with a gold star.
