@@ -93,13 +93,6 @@
   .preview h4{margin:0 0 6px;font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-size:15px}
   .status{margin-top:12px;font-size:15px;min-height:1.4em}
   .hidden{display:none !important}
-
-  /* newsletter */
-  .news{background:var(--cream)}
-  .news .formbox{max-width:560px}
-  .news .row2{display:grid;gap:12px;margin-top:12px}
-  .news label{font-weight:700;display:block;margin-bottom:4px}
-  .news .fine{font-size:14px;opacity:.8;margin-top:10px}
   /* about / contact */
   .about p{max-width:640px}
   .contact{display:grid;gap:10px;margin-top:16px}
@@ -307,18 +300,29 @@
     </div>
   </section>
 
-  <section id="newsletter" class="news">
+  <section id="newsletter">
     <div class="wrap">
-      <p class="eyebrow">Join the troops</p>
-      <h2>Get farm updates by email</h2>
-      <p>Be first to hear when birds are ready, sale dates and early-order offers. One short email every two weeks. No spam, Colonel's honour.</p>
-      <form class="formbox" id="newsForm" novalidate>
-        <div class="row2">
-          <div><label for="nName">Your name</label><input id="nName" type="text" autocomplete="name" required></div>
-          <div><label for="nEmail">Your email</label><input id="nEmail" type="email" autocomplete="email" inputmode="email" required></div>
+      <p class="eyebrow">Stay in the loop</p>
+      <h2>Join the flock newsletter</h2>
+      <p>Get a heads-up when new batches open, prices are set and pickup dates are confirmed. No spam, just chicken news.</p>
+      <form class="formbox" id="newsForm" action="https://formspree.io/f/FORMSPREE_ID" method="POST">
+        <div class="grid two">
+          <div class="field" data-field="newsName">
+            <label for="newsName">Your name <small>(optional)</small></label>
+            <input id="newsName" name="name" type="text" autocomplete="name">
+          </div>
+          <div class="field" data-field="newsEmail">
+            <label for="newsEmail">Email address</label>
+            <input id="newsEmail" name="email" type="email" autocomplete="email" required>
+            <div class="err">Please enter a valid email address.</div>
+          </div>
         </div>
-        <div style="margin-top:16px"><button type="submit" class="btn btn-green">Sign me up</button></div>
-        <p class="fine" id="newsStatus" role="status">This opens your email app with a ready-made sign-up message. Just press send. Reply "unsubscribe" any time to stop.</p>
+        <input type="hidden" name="_subject" value="New Colonel Clucks newsletter signup">
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="actions">
+          <button class="btn btn-gold" type="submit" style="width:100%">Sign me up</button>
+        </div>
+        <p class="status" id="newsStatus" role="status"></p>
       </form>
     </div>
   </section>
@@ -400,6 +404,9 @@ var CONFIG = {
   email: "cluckscolonel@gmail.com", // orders email
   priceWhole: null,              // e.g. 6500 (naira per bird); leave null until you set a price
   priceCut: null
+  // Newsletter signup posts to Formspree. Sign up free at https://formspree.io,
+  // create a form, then replace FORMSPREE_ID in the #newsForm action attribute below
+  // with your real form ID (e.g. https://formspree.io/f/abcd1234).
 };
 /* ========================================= */
 
@@ -536,18 +543,38 @@ var CONFIG = {
   });
   refresh();
   updateLinks();
-})();
-</script>
-<script>
-(function(){
-  var f=document.getElementById('newsForm'); if(!f) return;
-  f.addEventListener('submit',function(e){
+
+  /* ===== Newsletter signup ===== */
+  var newsForm = $('newsForm');
+  newsForm.addEventListener('submit', function(e){
     e.preventDefault();
-    var n=document.getElementById('nName').value.trim(), m=document.getElementById('nEmail').value.trim(), st=document.getElementById('newsStatus');
-    if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){st.textContent='Please add your name and a valid email address.';return;}
-    var body='Please add me to the Colonel Clucks newsletter.\n\nName: '+n+'\nEmail: '+m;
-    window.location.href='mailto:cluckscolonel@gmail.com?subject='+encodeURIComponent('Newsletter sign-up: '+n)+'&body='+encodeURIComponent(body);
-    st.textContent='Roger that! Press send in your email app to finish joining the troops.';
+    var emailField = newsForm.querySelector('[data-field="newsEmail"]');
+    var email = newsForm.elements['email'].value.trim();
+    var emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    emailField.classList.toggle('invalid', !emailOk);
+    if(!emailOk){ newsForm.elements['email'].focus(); return; }
+
+    var statusEl = $('newsStatus');
+    var btn = newsForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    statusEl.textContent = "Signing you up...";
+
+    fetch(newsForm.action, {
+      method: 'POST',
+      body: new FormData(newsForm),
+      headers: { 'Accept': 'application/json' }
+    }).then(function(res){
+      if(res.ok){
+        statusEl.textContent = "You're on the list! We'll be in touch.";
+        newsForm.reset();
+      } else {
+        statusEl.textContent = "Something went wrong. Please try again or email us directly.";
+      }
+    }).catch(function(){
+      statusEl.textContent = "Something went wrong. Please try again or email us directly.";
+    }).finally(function(){
+      btn.disabled = false;
+    });
   });
 })();
 </script>
