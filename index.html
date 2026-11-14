@@ -94,6 +94,12 @@
   .status{margin-top:12px;font-size:15px;min-height:1.4em}
   .hidden{display:none !important}
 
+  /* newsletter */
+  .news{background:var(--cream)}
+  .news .formbox{max-width:560px}
+  .news .row2{display:grid;gap:12px;margin-top:12px}
+  .news label{font-weight:700;display:block;margin-bottom:4px}
+  .news .fine{font-size:14px;opacity:.8;margin-top:10px}
   /* about / contact */
   .about p{max-width:640px}
   .contact{display:grid;gap:10px;margin-top:16px}
@@ -297,6 +303,22 @@
         </div>
         <p class="status" id="status" role="status"></p>
         <p class="note" style="margin-top:0">Sending opens your WhatsApp or email app with the order already written. Nothing is sent until you press send there.</p>
+      </form>
+    </div>
+  </section>
+
+  <section id="newsletter" class="news">
+    <div class="wrap">
+      <p class="eyebrow">Join the troops</p>
+      <h2>Get farm updates by email</h2>
+      <p>Be first to hear when birds are ready, sale dates and early-order offers. One short email every two weeks. No spam, Colonel's honour.</p>
+      <form class="formbox" id="newsForm" novalidate>
+        <div class="row2">
+          <div><label for="nName">Your name</label><input id="nName" type="text" autocomplete="name" required></div>
+          <div><label for="nEmail">Your email</label><input id="nEmail" type="email" autocomplete="email" inputmode="email" required></div>
+        </div>
+        <div style="margin-top:16px"><button type="submit" class="btn btn-green">Sign me up</button></div>
+        <p class="fine" id="newsStatus" role="status">This opens your email app with a ready-made sign-up message. Just press send. Reply "unsubscribe" any time to stop.</p>
       </form>
     </div>
   </section>
@@ -514,6 +536,19 @@ var CONFIG = {
   });
   refresh();
   updateLinks();
+})();
+</script>
+<script>
+(function(){
+  var f=document.getElementById('newsForm'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('nName').value.trim(), m=document.getElementById('nEmail').value.trim(), st=document.getElementById('newsStatus');
+    if(!n||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(m)){st.textContent='Please add your name and a valid email address.';return;}
+    var body='Please add me to the Colonel Clucks newsletter.\n\nName: '+n+'\nEmail: '+m;
+    window.location.href='mailto:cluckscolonel@gmail.com?subject='+encodeURIComponent('Newsletter sign-up: '+n)+'&body='+encodeURIComponent(body);
+    st.textContent='Roger that! Press send in your email app to finish joining the troops.';
+  });
 })();
 </script>
 </body>
