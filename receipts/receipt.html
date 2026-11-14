@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Colonel Clucks receipt {{RECEIPT_NO}}</title>
+<style>
+  @page { size: 105mm 245mm; margin: 0; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #FFF6E0; color: #232A14; font-family: Arial, Helvetica, sans-serif; font-size: 11pt; }
+  .page { width: 105mm; min-height: 245mm; padding: 0; background: #FFF6E0; }
+  .head { background: #4A5D23; color: #FFF6E0; text-align: center; padding: 5mm 4mm 4mm; }
+  .head .name { font-family: Georgia, 'Times New Roman', serif; font-weight: bold; font-size: 15pt; letter-spacing: .5pt; }
+  .head .sub { color: #E8A317; font-size: 7.5pt; letter-spacing: 2pt; text-transform: uppercase; margin-top: 1mm; }
+  .hero { background: #E8A317; text-align: center; border-bottom: 1.2mm solid #4A5D23; }
+  .hero img { width: 42mm; height: 42mm; display: block; margin: 0 auto; }
+  .body { padding: 5mm 6mm 4mm; }
+  h1 { font-family: Georgia, 'Times New Roman', serif; color: #4A5D23; font-size: 16pt; margin: 0 0 1.5mm; line-height: 1.15; }
+  .lead { margin: 0 0 4mm; font-size: 10pt; line-height: 1.4; }
+  .meta { width: 100%; border-collapse: collapse; font-size: 9pt; margin-bottom: 4mm; }
+  .meta td { padding: 1.1mm 0; vertical-align: top; }
+  .meta td:first-child { color: #4A5D23; font-weight: bold; width: 32mm; text-transform: uppercase; font-size: 7.5pt; letter-spacing: .8pt; padding-top: 1.5mm; }
+  .items { width: 100%; border-collapse: collapse; font-size: 9.5pt; }
+  .items th { background: #4A5D23; color: #FFF6E0; text-align: left; padding: 1.8mm 2mm; font-size: 7.5pt; letter-spacing: .8pt; text-transform: uppercase; }
+  .items th.r, .items td.r { text-align: right; }
+  .items td { padding: 2mm; border-bottom: .3mm dashed #4A5D23; background: #fff; }
+  .totals { width: 100%; border-collapse: collapse; margin-top: 2mm; font-size: 10pt; }
+  .totals td { padding: 1.2mm 2mm; }
+  .totals td.r { text-align: right; font-weight: bold; }
+  .totals tr.big td { font-size: 12pt; color: #4A5D23; border-top: .6mm solid #4A5D23; padding-top: 2mm; }
+  .totals tr.bal td { background: #E8A317; color: #232A14; font-weight: bold; }
+  .stamp { margin: 5mm auto 0; text-align: center; }
+  .stamp span { display: inline-block; border: .8mm solid #4A5D23; color: #4A5D23; border-radius: 2mm; padding: 1.5mm 4mm; font-family: Georgia, serif; font-weight: bold; letter-spacing: 1.5pt; transform: rotate(-4deg); font-size: 11pt; }
+  .bye { text-align: center; font-family: Georgia, 'Times New Roman', serif; color: #4A5D23; font-size: 13pt; margin: 5mm 0 1mm; }
+  .sig { text-align: center; font-size: 9pt; margin: 0; }
+  .foot { background: #4A5D23; color: #FFF6E0; text-align: center; padding: 3.5mm 4mm; font-size: 8pt; line-height: 1.5; margin-top: 5mm; }
+  .foot b { color: #E8A317; letter-spacing: 1pt; }
+  .note { font-size: 7.5pt; color: #5d6150; text-align: center; margin: 2mm 6mm 0; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="head">
+    <div class="name">COLONEL CLUCKS POULTRY</div>
+    <div class="sub">Farm-raised &middot; Jos, Plateau State</div>
+  </div>
+  <div class="hero"><img src="{{CHICKEN_SRC}}" alt="Happy Colonel Clucks chicken"></div>
+  <div class="body">
+    <h1>Order confirmed, {{FIRST_NAME}}!</h1>
+    <p class="lead">Thank you for your order. The troops are reporting for duty. Here is your receipt.</p>
+    <table class="meta">
+      <tr><td>Receipt no.</td><td>{{RECEIPT_NO}}</td></tr>
+      <tr><td>Date</td><td>{{RECEIPT_DATE}}</td></tr>
+      <tr><td>Customer</td><td>{{CUSTOMER}}</td></tr>
+      <tr><td>Phone</td><td>{{PHONE}}</td></tr>
+      <tr><td>{{MODE_LABEL}}</td><td>{{MODE_DETAIL}}</td></tr>
+      <tr><td>Date wanted</td><td>{{DATE_WANTED}}</td></tr>
+    </table>
+    <table class="items">
+      <tr><th>Item</th><th class="r">Qty</th><th class="r">Price</th><th class="r">Amount</th></tr>
+      {{ITEM_ROWS}}
+    </table>
+    <table class="totals">
+      <tr class="big"><td>Total</td><td class="r">{{TOTAL}}</td></tr>
+      <tr><td>Paid</td><td class="r">{{PAID}}</td></tr>
+      <tr class="bal"><td>Balance due</td><td class="r">{{BALANCE}}</td></tr>
+    </table>
+    <div class="stamp"><span>{{STAMP}}</span></div>
+    <p class="bye">Have a cluck-tastic day!</p>
+    <p class="sig">The Colonel, Colonel Clucks Poultry</p>
+  </div>
+  <div class="foot">
+    <b>CONNECT WITH US</b><br>
+    Instagram @colonelclucks &middot; WhatsApp +234 815 607 8475<br>
+    colonelclucks.netlify.app &middot; cluckscolonel@gmail.com
+  </div>
+  <p class="note">Keep this receipt for pickup or delivery. Birds are dressed fresh on the day.</p>
+</div>
+</body>
+</html>
