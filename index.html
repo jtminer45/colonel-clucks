@@ -68,6 +68,10 @@
   .cards{display:grid;gap:16px;margin-top:20px}
   .card{background:#fff;border:3px solid var(--green);border-radius:12px;padding:22px}
   .card .price{font-family:var(--cond);font-weight:700;font-size:20px;letter-spacing:.06em;color:var(--char);margin-top:10px}
+  .card .weight{font-size:15px;opacity:.75;margin-top:2px}
+  .card .price-list{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:4px}
+  .card .price-list li{display:flex;justify-content:space-between;font-family:var(--cond);font-weight:700;font-size:16px;letter-spacing:.04em;color:var(--char)}
+  .card .price-list li span:first-child{opacity:.7;font-weight:600}
   .card .tag{display:inline-block;background:var(--gold);color:var(--char);font-family:var(--cond);font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:13px;padding:3px 10px;border-radius:4px;margin-bottom:10px}
   .note{font-size:15px;opacity:.8;margin-top:14px}
 
@@ -82,19 +86,44 @@
   .seg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .seg input{position:absolute;opacity:0;pointer-events:none}
   .seg label{margin:0;text-align:center;padding:12px;border:2px solid var(--line);border-radius:8px;background:var(--cream);cursor:pointer;color:var(--char);font-size:17px}
+  .seg label small{display:block;text-transform:none;letter-spacing:0;font-family:var(--body);font-size:13px;opacity:.75;margin-top:2px}
   .seg input:checked + label{background:var(--green);color:var(--cream);border-color:var(--green)}
+  .seg input:checked + label small{opacity:.9}
   .seg input:focus-visible + label{outline:3px solid var(--gold);outline-offset:2px}
   .seg > div{position:relative}
+  .seg-4{grid-template-columns:repeat(2,1fr)}
+  @media (min-width:480px){ .seg-4{grid-template-columns:repeat(4,1fr)} }
   .err{color:#a12a1a;font-size:15px;margin-top:4px;display:none}
   .invalid .err{display:block}
   .invalid input,.invalid select{border-color:#a12a1a}
   .actions{display:grid;gap:12px;margin-top:22px}
   .preview{margin-top:22px;background:var(--cream);border:2px dashed var(--green);border-radius:10px;padding:14px;font-size:15px;white-space:pre-wrap;word-break:break-word}
   .preview h4{margin:0 0 6px;font-family:var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-size:15px}
+
+  /* order summary card */
+  .summary{margin-top:22px;background:#fff;border:3px solid var(--green);border-radius:14px;padding:20px 22px}
+  .summary h4{margin:0 0 14px;font-family:var(--slab);font-weight:400;font-size:19px;color:var(--green)}
+  .summary .ref{font-family:var(--cond);font-weight:700;letter-spacing:.08em;font-size:13px;color:var(--char);opacity:.7;margin:-10px 0 14px}
+  .summary .row{display:flex;justify-content:space-between;align-items:baseline;padding:8px 0;gap:10px}
+  .summary .row span:first-child{opacity:.75}
+  .summary .row span:last-child{font-weight:600;text-align:right}
+  .summary hr{border:0;border-top:1px solid var(--line);margin:4px 0}
+  .summary .total span:first-child{font-family:var(--cond);font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:1}
+  .summary .total span:last-child{font-family:var(--cond);font-weight:700;font-size:24px;color:#1f7a3d}
+  .summary .fine{font-size:13px;opacity:.65;margin-top:10px}
   .status{margin-top:12px;font-size:15px;min-height:1.4em}
   .hidden{display:none !important}
   /* about / contact */
   .about p{max-width:640px}
+  .partner{display:flex;align-items:center;gap:20px;margin-top:20px;background:#fff;border:3px solid var(--green);border-radius:14px;padding:18px 22px;max-width:fit-content}
+  .partner img{width:120px;height:120px;border-radius:10px;object-fit:cover;flex:0 0 auto}
+  .partner .ptext{display:flex;flex-direction:column;gap:2px}
+  .partner .peyebrow{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-size:13px}
+  .partner p{margin:0;font-size:18px}
+  @media (max-width:520px){
+    .partner{flex-direction:column;align-items:flex-start;max-width:100%}
+    .partner img{width:96px;height:96px}
+  }
   .contact{display:grid;gap:10px;margin-top:16px}
   .contact a{font-weight:600}
   .social{display:flex;gap:14px;margin-top:6px}
@@ -198,14 +227,15 @@
         <div class="card">
           <span class="tag">Whole</span>
           <h3>Whole broiler</h3>
-          <p>A whole bird, collected from the farm or delivered within Jos.</p>
-          <div class="price" id="priceWhole"></div>
+          <p>A whole bird, collected from the farm or delivered within Jos. Choose your weight when you order.</p>
+          <ul class="price-list" id="priceWhole"></ul>
         </div>
         <div class="card">
           <span class="tag">Cut</span>
           <h3>Cut broiler</h3>
           <p>Cleaned and cut, ready to cook, packed in our Colonel Clucks bag.</p>
           <div class="price" id="priceCut"></div>
+          <div class="weight" id="weightCut"></div>
         </div>
       </div>
       <p class="note">Batch 1 is small, so pre-orders are first come, first served.</p>
@@ -229,6 +259,16 @@
             <label for="phone">Phone number</label>
             <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0803 000 0000" required>
             <div class="err">Please enter a phone number we can reach you on.</div>
+          </div>
+        </div>
+
+        <div class="field" data-field="weight" style="margin-top:16px">
+          <label id="weightLabel">Choose your weight <small>(applies to whole birds)</small></label>
+          <div class="seg seg-4" role="radiogroup" aria-labelledby="weightLabel">
+            <div><input type="radio" id="w15" name="weightTier" value="1.5" checked><label for="w15">1.5kg<small id="pw15"></small></label></div>
+            <div><input type="radio" id="w25" name="weightTier" value="2.5"><label for="w25">2.5kg<small id="pw25"></small></label></div>
+            <div><input type="radio" id="w30" name="weightTier" value="3.0"><label for="w30">3kg<small id="pw30"></small></label></div>
+            <div><input type="radio" id="w35" name="weightTier" value="3.5"><label for="w35">3.5kg<small id="pw35"></small></label></div>
           </div>
         </div>
 
@@ -288,6 +328,20 @@
           <textarea id="notes" name="notes" placeholder="Size preference, event date, questions"></textarea>
         </div>
 
+        <div class="summary" aria-live="polite">
+          <h4>Your order summary</h4>
+          <div class="ref">Reference: <span id="sumRef"></span></div>
+          <div class="row"><span>Whole broilers</span><span id="sumWhole"></span></div>
+          <div class="row"><span>Cut broilers</span><span id="sumCut"></span></div>
+          <div class="row"><span>Estimated weight</span><span id="sumWeight"></span></div>
+          <hr>
+          <div class="row"><span id="sumModeLabel">Collection</span><span id="sumMode"></span></div>
+          <div class="row hidden" id="sumDeliveryRow"><span>Delivery fee</span><span id="sumDeliveryFee"></span></div>
+          <hr>
+          <div class="row total"><span>Estimated total</span><span id="sumTotal"></span></div>
+          <p class="fine">Illustrative example only. Final pricing confirmed by the farm.</p>
+        </div>
+
         <div class="preview" aria-live="polite"><h4>Your order message</h4><span id="preview"></span></div>
 
         <div class="actions">
@@ -332,6 +386,13 @@
       <p class="eyebrow">The farm</p>
       <h2>Small start-up, personal service</h2>
       <p>Colonel Clucks Poultry is a farm-raised, farm-to-table agric start-up based in Jos, Plateau State. Batch 1 is small, which means every order gets a personal reply from us, not a form letter.</p>
+      <div class="partner">
+        <img src="assets/longon-farms-logo.png" alt="Longon Farms Nigeria Limited logo">
+        <div class="ptext">
+          <span class="peyebrow">Official partner</span>
+          <p>In collaboration with <strong>Longon Farms Nigeria Limited</strong></p>
+        </div>
+      </div>
       <div class="contact">
         <div><strong>Location:</strong> Jos, Plateau State</div>
         <div class="social">
@@ -343,6 +404,12 @@
           </a>
           <a class="icon-btn" href="https://www.instagram.com/colonelclucks/" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.012 4.85.07 1.17.054 1.97.24 2.43.41.59.22 1.01.49 1.46.94.45.45.72.87.94 1.46.17.46.36 1.26.41 2.43.058 1.27.07 1.65.07 4.85s-.012 3.58-.07 4.85c-.054 1.17-.24 1.97-.41 2.43a3.9 3.9 0 0 1-.94 1.46c-.45.45-.87.72-1.46.94-.46.17-1.26.36-2.43.41-1.27.058-1.65.07-4.85.07s-3.58-.012-4.85-.07c-1.17-.054-1.97-.24-2.43-.41a3.9 3.9 0 0 1-1.46-.94 3.9 3.9 0 0 1-.94-1.46c-.17-.46-.36-1.26-.41-2.43C2.172 15.58 2.16 15.2 2.16 12s.012-3.58.07-4.85c.054-1.17.24-1.97.41-2.43.22-.59.49-1.01.94-1.46.45-.45.87-.72 1.46-.94.46-.17 1.26-.36 2.43-.41C8.42 2.172 8.8 2.16 12 2.16zm0 1.62c-3.14 0-3.5.012-4.74.068-1.03.047-1.6.218-1.97.363-.5.194-.85.425-1.22.796-.37.37-.6.72-.8 1.22-.145.37-.316.94-.363 1.97-.056 1.24-.068 1.6-.068 4.74s.012 3.5.068 4.74c.047 1.03.218 1.6.363 1.97.194.5.425.85.796 1.22.37.37.72.6 1.22.8.37.145.94.316 1.97.363 1.24.056 1.6.068 4.74.068s3.5-.012 4.74-.068c1.03-.047 1.6-.218 1.97-.363.5-.194.85-.425 1.22-.796.37-.37.6-.72.8-1.22.145-.37.316-.94.363-1.97.056-1.24.068-1.6.068-4.74s-.012-3.5-.068-4.74c-.047-1.03-.218-1.6-.363-1.97a3.3 3.3 0 0 0-.796-1.22 3.3 3.3 0 0 0-1.22-.8c-.37-.145-.94-.316-1.97-.363-1.24-.056-1.6-.068-4.74-.068zM12 6.87A5.13 5.13 0 1 1 6.87 12 5.13 5.13 0 0 1 12 6.87zm0 1.62A3.51 3.51 0 1 0 15.51 12 3.51 3.51 0 0 0 12 8.49zm5.35-2.9a1.2 1.2 0 1 1-1.2 1.2 1.2 1.2 0 0 1 1.2-1.2z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://www.facebook.com/profile.php?id=61596370718430" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.84c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94z"/></svg>
+          </a>
+          <a class="icon-btn" href="https://x.com/ColonelClucks" target="_blank" rel="noopener noreferrer" aria-label="Follow us on X">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.9 2h3.1l-6.78 7.75L23.2 22h-6.28l-4.92-6.43L6.3 22H3.2l7.25-8.29L2 2h6.43l4.45 5.88L18.9 2zm-1.1 18.17h1.72L7.3 3.74H5.46l12.34 16.43z"/></svg>
           </a>
         </div>
       </div>
@@ -399,11 +466,19 @@
 <script>
 /* ===== Edit these when details change ===== */
 var CONFIG = {
-  whatsapp: "2348156078475",   // international format, no + or spaces
-  phoneDisplay: "0815 607 8475",
+  whatsapp: "2349135556086",   // international format, no + or spaces
+  phoneDisplay: "0913 555 6086",
   email: "cluckscolonel@gmail.com", // orders email
-  priceWhole: null,              // e.g. 6500 (naira per bird); leave null until you set a price
-  priceCut: null
+  priceByWeight: {                // naira per whole bird, by weight tier; leave null until prices are set
+    "1.5": null,
+    "2.5": null,
+    "3.0": null,
+    "3.5": null
+  },
+  priceCut: null,                 // naira per cut bag
+  weightCut: "1.5–1.9 kg",        // estimated weight per cut bird (packed)
+  deliveryFee: null,             // e.g. 1500 (naira, flat fee within Jos); leave null until you set a fee
+  fulfillWindow: "18 to 23 Dec 2026" // when orders from this batch are ready
   // Newsletter signup posts to Formspree (form xdegawzq), see #newsForm action attribute below.
 };
 /* ========================================= */
@@ -413,8 +488,17 @@ var CONFIG = {
   var form = $('orderForm');
 
   function priceText(p){ return p ? "₦" + Number(p).toLocaleString('en-NG') + " per bird" : "Price confirmed when you order"; }
-  $('priceWhole').textContent = priceText(CONFIG.priceWhole);
+  Object.keys(CONFIG.priceByWeight).forEach(function(kg){
+    var p = CONFIG.priceByWeight[kg];
+    var li = document.createElement('li');
+    li.innerHTML = '<span>' + kg + 'kg</span><span>' + (p ? naira(p) : 'TBC') + '</span>';
+    $('priceWhole').appendChild(li);
+
+    var tag = $('pw' + kg.replace('.', ''));
+    if(tag) tag.textContent = p ? naira(p) : "TBC";
+  });
   $('priceCut').textContent = priceText(CONFIG.priceCut);
+  $('weightCut').textContent = "Est. weight: " + CONFIG.weightCut;
 
   var tel = CONFIG.whatsapp;
   $('waIcon').href = "https://wa.me/" + tel;
@@ -432,15 +516,31 @@ var CONFIG = {
   function radio(n){ var r = form.querySelector('input[name="'+n+'"]:checked'); return r ? r.value : ''; }
 
   function num(id){ var n = parseInt(form.elements[id].value, 10); return isNaN(n) || n < 0 ? 0 : n; }
+  function naira(n){ return "₦" + Number(n).toLocaleString('en-NG'); }
+
+  /* Automatic order reference, kept for this visit so it stays the same across edits */
+  var orderRef = (function(){
+    var key = 'ccOrderRef';
+    try{
+      var existing = sessionStorage.getItem(key);
+      if(existing) return existing;
+    }catch(e){}
+    var ref = 'CC-' + Date.now().toString(36).toUpperCase().slice(-4) + Math.floor(100 + Math.random()*900);
+    try{ sessionStorage.setItem(key, ref); }catch(e){}
+    return ref;
+  })();
+
   function buildMessage(){
     var whole = num('qtyWhole'), cut = num('qtyCut'), total = whole + cut;
     var mode = radio('mode');
+    var tier = radio('weightTier');
     var parts = [];
-    if(whole) parts.push(whole + " whole");
+    if(whole) parts.push(whole + " whole (" + tier + "kg)");
     if(cut) parts.push(cut + " cut");
     var lines = [
       "Hello Colonel Clucks, I would like to order:",
       "",
+      "Reference: " + orderRef,
       "Birds: " + (parts.length ? parts.join(" + ") + " (" + total + " total)" : "__"),
       mode === 'Delivery' ? "Delivery in Jos: " + (val('area') || '__') : "Pickup from the farm",
       "Date wanted: " + form.elements['date'].value,
@@ -450,6 +550,39 @@ var CONFIG = {
     if(val('notes')) lines.push("Notes: " + val('notes'));
     lines.push("", "Please confirm availability and price. Thank you.");
     return lines.join("\n");
+  }
+
+  function updateSummary(){
+    var whole = num('qtyWhole'), cut = num('qtyCut');
+    var del = radio('mode') === 'Delivery';
+    var tier = radio('weightTier');
+    var tierPrice = CONFIG.priceByWeight[tier];
+    $('sumRef').textContent = orderRef;
+    $('sumWhole').textContent = whole + (whole === 1 ? " bird" : " birds") + (whole ? " (" + tier + "kg)" : "");
+    $('sumCut').textContent = cut + (cut === 1 ? " bird" : " birds");
+
+    if(whole + cut > 0){
+      var wholeKg = whole * Number(tier);
+      var cutLo = Number(CONFIG.weightCut.split('–')[0]), cutHi = Number(CONFIG.weightCut.split('–')[1]);
+      var cutKg = cut * ((cutLo + cutHi) / 2);
+      $('sumWeight').textContent = "~" + (wholeKg + cutKg).toFixed(1) + " kg total";
+    } else {
+      $('sumWeight').textContent = "—";
+    }
+
+    $('sumModeLabel').textContent = del ? "Delivery" : "Collection";
+    $('sumMode').textContent = del ? ("Jos" + (val('area') ? " – " + val('area') : "")) : "Farm pickup";
+    $('sumDeliveryRow').classList.toggle('hidden', !del);
+    $('sumDeliveryFee').textContent = CONFIG.deliveryFee ? naira(CONFIG.deliveryFee) : "Confirmed by the farm";
+
+    var haveBirdPrice = whole * (tierPrice||0) + cut * (CONFIG.priceCut||0);
+    var canPrice = (whole===0 || tierPrice) && (cut===0 || CONFIG.priceCut) && (whole+cut>0);
+    if(canPrice){
+      var total = haveBirdPrice + (del ? (CONFIG.deliveryFee||0) : 0);
+      $('sumTotal').textContent = naira(total);
+    } else {
+      $('sumTotal').textContent = "₦XX,XXX";
+    }
   }
 
   Array.prototype.forEach.call(form.querySelectorAll('.stp'), function(btn){
@@ -465,6 +598,7 @@ var CONFIG = {
     var del = radio('mode') === 'Delivery';
     $('areaBox').classList.toggle('hidden', !del);
     $('preview').textContent = buildMessage();
+    updateSummary();
   }
   form.addEventListener('input', refresh);
   form.addEventListener('change', refresh);
@@ -510,7 +644,7 @@ var CONFIG = {
   function showSalute(channel){
     var first = val('name').split(/\s+/)[0] || 'soldier';
     $('sTitle').textContent = pick(TITLES).replace('NAME', first);
-    $('sMsg').textContent = "Your order is locked and loaded. Press SEND in " + channel + " and our command centre will get back to you soon with your price and delivery plan. Thank you for your service to the flock!";
+    $('sMsg').textContent = "Your order (ref " + orderRef + ") is locked and loaded. Press SEND in " + channel + " and our command centre will get back to you soon with your price and delivery plan. Batch 1 is ready " + CONFIG.fulfillWindow + ". Thank you for your service to the flock!";
     $('sSign').textContent = pick(SIGNOFFS);
     lastFocus = document.activeElement;
     salute.classList.remove('open'); void salute.offsetWidth;
