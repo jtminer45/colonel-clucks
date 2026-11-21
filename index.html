@@ -574,7 +574,7 @@ var CONFIG = {
 
     if(whole + cut > 0){
       var wholeKg = whole * Number(tier);
-      var cutLo = Number(CONFIG.weightCut.split('–')[0]), cutHi = Number(CONFIG.weightCut.split('–')[1]);
+      var cutLo = parseFloat(CONFIG.weightCut.split('–')[0]), cutHi = parseFloat(CONFIG.weightCut.split('–')[1]);
       var cutKg = cut * ((cutLo + cutHi) / 2);
       $('sumWeight').textContent = "~" + (wholeKg + cutKg).toFixed(1) + " kg total";
     } else {
