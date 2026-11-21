@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://colonelclucks.netlify.app/sitemap.xml
